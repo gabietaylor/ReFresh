@@ -18,28 +18,25 @@
 ## Resourceful links/starter code: 
 
 ### Node requires
+- react
+- reactDOM
+- Express
+- Passport
+- 
+
+### D3??? or Neo4j???
 - 
 -
 -
 -
 -
-
-### D3
-- 
--
--
--
--
 -
 -
 
-### MySQL
+### Mongoose/MongoDB
 - Passport
 - Admins
 - Users
-
-### Mongoose
-- 
 
 ### 
 
@@ -53,7 +50,8 @@
 -
 
 ## Stuff to think about:
-- 
+- Passport should have Google Auth
+- Logins should have sessions
       
 ## Project Requirements:
 * Must use a Front-end (ReactJS, Vue, Angular, etc.) and a Backend framework / Library (Laravel, Express, Django, Joomla, etc.)
