@@ -1,14 +1,18 @@
-# UjimaConnect
+# ReFresh
+* Farmers can send out their location via mobile phone when they open shop, so that people in their area can come and buy products.
+* Users can find open farmer's markets or pop up healthy food shops in their area via mobile phone location and be guided to their chosen location via google maps.
+* Farmers can sign-in to create their "Market Spot"
+* Market Spot will include Owner's Name, Location, Products
 
 ## Languages/Frameworks: 
-* 
-* 
+* ReactJS
+* Express
 * 
 *
 
 ## Technologies (NPM packages, etc):
-* 
-* 
+* Passport
+* Cities
 * 
 
 ## Resourceful links/starter code: 
@@ -30,7 +34,9 @@
 -
 
 ### MySQL
-- 
+- Passport
+- Admins
+- Users
 
 ### Mongoose
 - 
