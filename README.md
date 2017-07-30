@@ -7,8 +7,8 @@
 ## Languages/Frameworks: 
 * ReactJS
 * Express
-* 
-*
+* TotalJS
+* Foundation
 
 ## Technologies (NPM packages, etc):
 * Passport
@@ -22,7 +22,8 @@
 - reactDOM
 - Express
 - Passport
-- 
+- bodyParser
+-axios
 
 ### D3??? or Neo4j???
 - 

@@ -2,21 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UsersSchema = new Schema({
-  title: {
+  userName: {
     type: String,
     trim: true,
-    required: "Title is Required"
+    required: "UserName is Required"
   },
-  date: {
-    type: Date,
-    default: Date.now,
-    required: "Date is Required"
-  },
-  url: {
+  password: {
     type: String,
-    required: true,
-    required: "URL is Required",
-    unique: true
+    trim: true,
+    required: "Password is Required"
+  },
+  favLocations: {
+    type: String,
+    trim: true
   }
 });
 
