@@ -7,7 +7,7 @@
 ## Languages/Frameworks: 
 * ReactJS
 * Express
-* TotalJS
+* 
 * Foundation
 
 ## Technologies (NPM packages, etc):
@@ -24,15 +24,13 @@
 - Passport
 - bodyParser
 - axios
+- mongoose
 
-### D3??? or Neo4j???
-- 
--
--
--
--
--
--
+### D3
+- https://www.jasondavies.com/wordcloud/
+### Google
+- Google Maps
+- Passport w/ Google Auth
 
 ### Mongoose/MongoDB
 - Admins
