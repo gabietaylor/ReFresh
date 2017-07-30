@@ -34,7 +34,6 @@
 -
 
 ### Mongoose/MongoDB
-- Passport
 - Admins
 - Users
 
