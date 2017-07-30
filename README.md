@@ -23,7 +23,7 @@
 - Express
 - Passport
 - bodyParser
--axios
+- axios
 
 ### D3??? or Neo4j???
 - 
