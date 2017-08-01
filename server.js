@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 // Require Models
-const Users = require('./models/Users.js');
+var configDB = require('./config/database.js');
 
 const PORT = process.env.PORT || 8080;
 
