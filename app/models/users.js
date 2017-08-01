@@ -18,13 +18,16 @@ const UsersSchema = mongoose.Schema({
         id           : String,
         token        : String,
         displayName  : String,
-        Usersname     : String
+        Usersname    : String
     },
     google           : {
         id           : String,
         token        : String,
         email        : String,
         name         : String
+    },
+    farmer           : {
+        false        : Boolean
     }
 });
 
