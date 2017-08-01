@@ -10,7 +10,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 // Require Models
-const Admins = require('./models/Admins.js');
 const Users = require('./models/Users.js');
 
 const PORT = process.env.PORT || 8080;
@@ -28,7 +27,6 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(express.static('./public'));
 
 // grabs data for users or admins
-mongoose.connect('Admins.url');
 mongoose.connect('Users.url');
 //mongoose.connect('mongodb://');
 
