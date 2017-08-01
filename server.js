@@ -27,7 +27,7 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(express.static('./public'));
 
 // grabs data for users or admins
-mongoose.connect('Users.url');
+mongoose.connect('mongodb://localhost/refresh');
 //mongoose.connect('mongodb://');
 
 // require('./config/passport')(passport); // pass passport for configuration
