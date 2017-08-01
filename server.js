@@ -10,10 +10,24 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 // Require Models
-var configDB = require('./config/database.js');
+const configDB = require('./config/database.js');
 
-const PORT = process.env.PORT || 8080;
+const dbConnectString = process.env.MONGODB_URI || "mongodb://localhost/refresh";	
 
+// Database configuration with mongoose
+mongoose.connect(dbConnectString, function(error){
+	if (error) throw error;
+
+	console.log("Successful mongoose connection.");
+});
+
+// Grad everything form public
+// app.use(express.static('./public'));
+
+//mongoose.connect(configDB.url); // connect to our database
+require('./config/passport')(passport); // pass passport for configuration
+// required for passport
+app.set('view engine', 'ejs');
 // Morgan Logging
 app.use(logger('dev'));
 // Parse the data
@@ -23,34 +37,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
-// Grad everything form public
-app.use(express.static('./public'));
 
-// grabs data for users or admins
-mongoose.connect('mongodb://localhost/refresh');
-//mongoose.connect('mongodb://');
-
-// require('./config/passport')(passport); // pass passport for configuration
-
-const db = mongoose.connection;
-
-db.on('error', function (err) {
-  console.log('Mongoose Error: ', err);
-});
-
-db.once('open', function () {
-  console.log('Successful mongoose connection.');
-});
-// required for passport
-app.use(session({ secret: 'refreshyourself' })); // session secret
+app.use(session({ secret: 'refreshyourself',
+	//session secret
+    resave: true,
+    saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./passport/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport// 
+
+// Import routes and give the server access to them.
+//const routes = require("./controller/controller.js");
+// app.use("/", routes);
 
 // Listening on Port
-app.listen(PORT, function() {
-  console.log("Listening on " + PORT);
+app.listen(process.env.PORT || 8080, function() {
+  console.log("Listening on 8080");
 });

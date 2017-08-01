@@ -1,10 +1,9 @@
 // load the things we need
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+const mongoose = require('mongoose');
+const bcrypt   = require('bcrypt-nodejs');
 
 // define the schema for our user model
-var UsersSchema = mongoose.Schema({
-
+const UsersSchema = mongoose.Schema({
     local            : {
         email        : String,
         password     : String
@@ -27,7 +26,6 @@ var UsersSchema = mongoose.Schema({
         email        : String,
         name         : String
     }
-
 });
 
 // generating a hash

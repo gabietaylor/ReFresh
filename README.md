@@ -28,6 +28,7 @@
 
 ### D3
 - https://www.jasondavies.com/wordcloud/
+
 ### Google
 - Google Maps
 - Passport w/ Google Auth
@@ -46,6 +47,12 @@
 -
 -
 -
+
+## Sources
+### Hash History
+- https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+###
+- 
 
 ## Stuff to think about:
 - Passport should have Google Auth

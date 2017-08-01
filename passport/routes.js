@@ -1,15 +1,12 @@
 module.exports = function(app, passport) {
-
-// normal routes ===============================================================
-
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.html');
+        res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.html', {
+        res.render('profile.ejs', {
             user : req.user
         });
     });
@@ -19,16 +16,12 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
-
-// =============================================================================
-// AUTHENTICATE (FIRST LOGIN) ==================================================
-// =============================================================================
-
+// AUTHENTICATE (FIRST LOGIN)
     // locally --------------------------------
         // LOGIN ===============================
         // show the login form
         app.get('/login', function(req, res) {
-            res.render('login.html', { message: req.flash('loginMessage') });
+            res.render('login.ejs', { message: req.flash('loginMessage') });
         });
 
         // process the login form
@@ -41,7 +34,7 @@ module.exports = function(app, passport) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
-            res.render('signup.html', { message: req.flash('signupMessage') });
+            res.render('signup.ejs', { message: req.flash('signupMessage') });
         });
 
         // process the signup form
@@ -87,14 +80,10 @@ module.exports = function(app, passport) {
                 successRedirect : '/profile',
                 failureRedirect : '/'
             }));
-
-// =============================================================================
-// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
-// =============================================================================
-
+// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT)
     // locally --------------------------------
         app.get('/connect/local', function(req, res) {
-            res.render('connect-local.html', { message: req.flash('loginMessage') });
+            res.render('connect-local.ejs', { message: req.flash('loginMessage') });
         });
         app.post('/connect/local', passport.authenticate('local-signup', {
             successRedirect : '/profile', // redirect to the secure profile section
@@ -138,17 +127,14 @@ module.exports = function(app, passport) {
                 successRedirect : '/profile',
                 failureRedirect : '/'
             }));
-
-// =============================================================================
-// UNLINK ACCOUNTS =============================================================
-// =============================================================================
+// UNLINK ACCOUNTS 
 // used to unlink accounts. for social accounts, just remove the token
 // for local account, remove email and password
 // user account will stay active in case they want to reconnect in the future
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function(req, res) {
-        var user            = req.user;
+        const user            = req.user;
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
@@ -158,7 +144,7 @@ module.exports = function(app, passport) {
 
     // facebook -------------------------------
     app.get('/unlink/facebook', isLoggedIn, function(req, res) {
-        var user            = req.user;
+        const user            = req.user;
         user.facebook.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');
@@ -167,7 +153,7 @@ module.exports = function(app, passport) {
 
     // twitter --------------------------------
     app.get('/unlink/twitter', isLoggedIn, function(req, res) {
-        var user           = req.user;
+        const user           = req.user;
         user.twitter.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');
@@ -176,14 +162,12 @@ module.exports = function(app, passport) {
 
     // google ---------------------------------
     app.get('/unlink/google', isLoggedIn, function(req, res) {
-        var user          = req.user;
+        const user          = req.user;
         user.google.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');
         });
     });
-
-
 };
 
 // route middleware to ensure user is logged in
