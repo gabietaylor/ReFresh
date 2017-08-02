@@ -1,5 +1,5 @@
 var React = require("react");
-var SignUp = React.createClass({
+var Profile = React.createClass({
 
   // Render Comp
   render: function() {
@@ -7,7 +7,7 @@ var SignUp = React.createClass({
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-          <p>SignUp</p>
+          <p>Profile</p>
           </div>
         </div>
       </div>
@@ -15,4 +15,4 @@ var SignUp = React.createClass({
   }
 });
 
-module.exports = SignUp;
+module.exports = Profile;

@@ -1,5 +1,5 @@
-const React = require("react");
-const Login = React.createClass({
+var React = require("react");
+var Login = React.createClass({
 
   // Render Comp
   render: function() {

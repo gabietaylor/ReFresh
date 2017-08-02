@@ -12,7 +12,9 @@ var IndexRoute = router.IndexRoute;
 // Main comps
 var Main = require("../components/Main");
 var Login = require("../components/Login");
-var SignUp = require("../components/Signup");
+var Signup = require("../components/Signup");
+var ConnectLocal = require("../components/Connect-Local");
+var Profile = require("../components/Profile");
 
 module.exports = (
 
@@ -22,7 +24,7 @@ module.exports = (
 
       {/* If user selects Login or SignUp show the routed comp */}
       <Route path="Login" component={Login} />
-      <Route path="Signup" component={SignUp} />
+      <Route path="Signup" component={Signup} />
 
       {/* If user selects any other path... we get the Login Route */}
       <IndexRoute component={Login} />

@@ -1,9 +1,9 @@
-const React = require("react");
+var React = require("react");
 // Link comp to link everything on reload
-const Link = require("react-router").Link;
+var Link = require("react-router").Link;
 
 // Create the Main component
-const Main = React.createClass({
+var Main = React.createClass({
 
   // Render Comp
   render: function() {
@@ -11,7 +11,7 @@ const Main = React.createClass({
       <div className="container">
         <div className="row">
           <div className="jumbotron text-center">
-            <h1><span className="fa fa-lock"></span> Homepage</h1>
+            <h1>Homepage</h1>
           </div>
           <div className="container">
             {/* Added this.props.children to put child comps in place*/}

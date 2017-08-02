@@ -1,13 +1,13 @@
-const LocalStrategy    = require('passport-local').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
-const TwitterStrategy  = require('passport-twitter').Strategy;
-const GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
+var LocalStrategy    = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var TwitterStrategy  = require('passport-twitter').Strategy;
+var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
-const User       = require('../app/models/users');
+var User       = require('../app/models/users');
 
-// load the auth constiables
-const configAuth = require('./auth'); // use this one for testing
+// load the auth variables
+var configAuth = require('./auth'); // use this one for testing
 
 module.exports = function(passport) {
 
@@ -83,7 +83,7 @@ module.exports = function(passport) {
                     } else {
 
                         // create the user
-                        const newUser            = new User();
+                        var newUser            = new User();
 
                         newUser.local.email    = email;
                         newUser.local.password = newUser.generateHash(password);
@@ -109,7 +109,7 @@ module.exports = function(passport) {
                         return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
                         // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
                     } else {
-                        const user = req.user;
+                        var user = req.user;
                         user.local.email = email;
                         user.local.password = user.generateHash(password);
                         user.save(function (err) {
@@ -129,7 +129,7 @@ module.exports = function(passport) {
 
     }));
 // FACEBOOK
-    const fbStrategy = configAuth.facebookAuth;
+    var fbStrategy = configAuth.facebookAuth;
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy({
         // pull in our app id and secret from our auth.js file
@@ -171,7 +171,7 @@ module.exports = function(passport) {
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user, create them
-                        const newUser            = new User();
+                        var newUser            = new User();
 
                         newUser.facebook.id    = profile.id;
                         newUser.facebook.token = token;
@@ -189,7 +189,7 @@ module.exports = function(passport) {
 
             } else {
                 // user already exists and is logged in, we have to link accounts
-                const user            = req.user; // pull the user out of the session
+                var user            = req.user; // pull the user out of the session
 
                 user.facebook.id    = profile.id;
                 user.facebook.token = token;
@@ -245,7 +245,7 @@ module.exports = function(passport) {
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user, create them
-                        const newUser                 = new User();
+                        var newUser                 = new User();
 
                         newUser.twitter.id          = profile.id;
                         newUser.twitter.token       = token;
@@ -263,7 +263,7 @@ module.exports = function(passport) {
 
             } else {
                 // user already exists and is logged in, we have to link accounts
-                const user                 = req.user; // pull the user out of the session
+                var user                 = req.user; // pull the user out of the session
 
                 user.twitter.id          = profile.id;
                 user.twitter.token       = token;
@@ -320,7 +320,7 @@ module.exports = function(passport) {
 
                         return done(null, user);
                     } else {
-                        const newUser          = new User();
+                        var newUser          = new User();
 
                         newUser.google.id    = profile.id;
                         newUser.google.token = token;
@@ -338,7 +338,7 @@ module.exports = function(passport) {
 
             } else {
                 // user already exists and is logged in, we have to link accounts
-                const user               = req.user; // pull the user out of the session
+                var user               = req.user; // pull the user out of the session
 
                 user.google.id    = profile.id;
                 user.google.token = token;

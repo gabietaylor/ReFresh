@@ -2,12 +2,12 @@ var path = require('path');
 module.exports = function(app, passport) {
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('Main.js');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+        res.render('Profile.js', {
             user : req.user
         });
 /*        res.sendFile(path.join(__dirname, '../public', 'index.html'));*/    
@@ -40,7 +40,7 @@ module.exports = function(app, passport) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
-            res.render('signup.ejs', { message: req.flash('signupMessage') });
+            res.render('Signup.js', { message: req.flash('signupMessage') });
         });
 
         // process the signup form
@@ -145,7 +145,7 @@ module.exports = function(app, passport) {
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function(req, res) {
-        const user            = req.user;
+        var user            = req.user;
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
@@ -155,7 +155,7 @@ module.exports = function(app, passport) {
 
     // facebook -------------------------------
     app.get('/unlink/facebook', isLoggedIn, function(req, res) {
-        const user            = req.user;
+        var user            = req.user;
         user.facebook.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');
@@ -164,7 +164,7 @@ module.exports = function(app, passport) {
 
     // twitter --------------------------------
     app.get('/unlink/twitter', isLoggedIn, function(req, res) {
-        const user           = req.user;
+        var user           = req.user;
         user.twitter.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');
@@ -173,7 +173,7 @@ module.exports = function(app, passport) {
 
     // google ---------------------------------
     app.get('/unlink/google', isLoggedIn, function(req, res) {
-        const user          = req.user;
+        var user          = req.user;
         user.google.token = undefined;
         user.save(function(err) {
             res.redirect('/profile');

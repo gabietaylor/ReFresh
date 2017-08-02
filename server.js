@@ -1,18 +1,18 @@
 // Simple NPMs
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const passport = require('passport');
-const flash = require('connect-flash');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 
 // Require Models
-const configDB = require('./config/database.js');
+var configDB = require('./config/database.js');
 
-const dbConnectString = process.env.MONGODB_URI || "mongodb://localhost/refresh";	
+var dbConnectString = process.env.MONGODB_URI || "mongodb://localhost/refresh";	
 
 // Database configuration with mongoose
 mongoose.connect(dbConnectString, function(error){
@@ -22,7 +22,7 @@ mongoose.connect(dbConnectString, function(error){
 });
 
 // Grad everything form public
-// app.use(express.static('./public'));
+app.use(express.static('./public'));
 
 //mongoose.connect(configDB.url); // connect to our database
 require('./config/passport')(passport); // pass passport for configuration
@@ -50,8 +50,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./passport/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport// 
 
 // Import routes and give the server access to them.
-//const routes = require("./controller/controller.js");
-// app.use("/", routes);
+var routes = require("./controller/controller.js");
+app.use("/", routes);
 
 // Listening on Port
 app.listen(process.env.PORT || 8080, function() {
