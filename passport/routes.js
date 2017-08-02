@@ -2,14 +2,15 @@ var path = require('path');
 module.exports = function(app, passport) {
     // show the home page (will also have our login links)
     app.get('/homepage', function(req, res) {
-        res.render('index.ejs');
+        res.render('homepage.ejs');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs');
-
-/*        res.sendFile(path.join(__dirname, '../public', 'index.ejs'));*/    
+        res.render('profile.ejs', {
+            user : req.user
+        });
+/*        res.sendFile(path.join(__dirname, '../public', 'index.html'));*/    
 
 });
 
