@@ -24759,5 +24759,35 @@ module.exports = SignUp;
 "use strict";
 
 
+// Include React
+var React = __webpack_require__(7);
+
+var Homepage = React.createClass({
+    displayName: "Homepage",
+
+
+    // Here we render the component
+    render: function render() {
+
+        return React.createElement(
+            "div",
+            { "class": "container" },
+            React.createElement(
+                "div",
+                { className: "jumbotron text-center" },
+                React.createElement(
+                    "h1",
+                    null,
+                    React.createElement("span", { className: "fa fa-lock" }),
+                    " Homepage"
+                )
+            )
+        );
+    }
+});
+
+// Export the component back for use in other files
+module.exports = Homepage;
+
 /***/ })
 /******/ ]);

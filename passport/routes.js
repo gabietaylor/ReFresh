@@ -7,8 +7,11 @@ module.exports = function(app, passport) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.sendFile(path.join(__dirname, '../public', 'index.html'));
-    });
+        res.render('profile.ejs');
+
+/*        res.sendFile(path.join(__dirname, '../public', 'index.ejs'));*/    
+
+});
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
