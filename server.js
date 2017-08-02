@@ -22,7 +22,7 @@ mongoose.connect(dbConnectString, function(error){
 });
 
 // Grad everything form public
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
 //mongoose.connect(configDB.url); // connect to our database
 require('./config/passport')(passport); // pass passport for configuration

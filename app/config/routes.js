@@ -11,7 +11,6 @@ var IndexRoute = router.IndexRoute;
 
 // Main comps
 var Main = require("../components/Main");
-var Homepage = require("../components/Homepage");
 var Login = require("../components/Login");
 var SignUp = require("../components/Signup");
 
@@ -22,7 +21,6 @@ module.exports = (
     <Route path="/" component={Main}>
 
       {/* If user selects Login or SignUp show the routed comp */}
-      <Route path="Homepage" component={Homepage} />
       <Route path="Login" component={Login} />
       <Route path="Signup" component={SignUp} />
 

@@ -23016,7 +23016,6 @@ var IndexRoute = router.IndexRoute;
 
 // Main comps
 var Main = __webpack_require__(208);
-var Homepage = __webpack_require__(211);
 var Login = __webpack_require__(209);
 var SignUp = __webpack_require__(210);
 
@@ -23029,7 +23028,6 @@ React.createElement(
   React.createElement(
     Route,
     { path: "/", component: Main },
-    React.createElement(Route, { path: "Homepage", component: Homepage }),
     React.createElement(Route, { path: "Login", component: Login }),
     React.createElement(Route, { path: "Signup", component: SignUp }),
     React.createElement(IndexRoute, { component: Login })
@@ -24642,31 +24640,9 @@ var Main = React.createClass({
           React.createElement(
             "h1",
             null,
-            "Refresh Yourself!!"
-          ),
-          React.createElement(
-            Link,
-            { to: "/Login" },
-            React.createElement(
-              "button",
-              { className: "btn btn-default" },
-              "Login"
-            )
-          ),
-          React.createElement(
-            Link,
-            { to: "/Signup" },
-            React.createElement(
-              "button",
-              { className: "btn btn-default" },
-              "Signup"
-            )
+            React.createElement("span", { className: "fa fa-lock" }),
+            " Homepage"
           )
-        ),
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement("div", { className: "text-center" })
         ),
         React.createElement(
           "div",
@@ -24699,15 +24675,47 @@ var Login = React.createClass({
       { className: "container" },
       React.createElement(
         "div",
-        { className: "row" },
+        { "class": "jumbotron text-center" },
         React.createElement(
-          "div",
-          { className: "col-lg-12" },
-          React.createElement(
-            "p",
-            null,
-            "Login"
-          )
+          "h1",
+          null,
+          React.createElement("span", { "class": "fa fa-lock" }),
+          " ReFresh "
+        ),
+        React.createElement(
+          "p",
+          null,
+          "Login or Register with:"
+        ),
+        React.createElement(
+          "a",
+          { href: "/login", "class": "btn btn-default" },
+          React.createElement("span", { "class": "fa fa-user" }),
+          " Local Login"
+        ),
+        React.createElement(
+          "a",
+          { href: "/signup", "class": "btn btn-default" },
+          React.createElement("span", { "class": "fa fa-user" }),
+          " Local Signup"
+        ),
+        React.createElement(
+          "a",
+          { href: "/auth/facebook", "class": "btn btn-primary" },
+          React.createElement("span", { "class": "fa fa-facebook" }),
+          " Facebook"
+        ),
+        React.createElement(
+          "a",
+          { href: "/auth/twitter", "class": "btn btn-info" },
+          React.createElement("span", { "class": "fa fa-twitter" }),
+          " Twitter"
+        ),
+        React.createElement(
+          "a",
+          { href: "/auth/google", "class": "btn btn-danger" },
+          React.createElement("span", { "class": "fa fa-google-plus" }),
+          " Google+"
         )
       )
     );
@@ -24751,43 +24759,6 @@ var SignUp = React.createClass({
 });
 
 module.exports = SignUp;
-
-/***/ }),
-/* 211 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// Include React
-var React = __webpack_require__(7);
-
-var Homepage = React.createClass({
-    displayName: "Homepage",
-
-
-    // Here we render the component
-    render: function render() {
-
-        return React.createElement(
-            "div",
-            { "class": "container" },
-            React.createElement(
-                "div",
-                { className: "jumbotron text-center" },
-                React.createElement(
-                    "h1",
-                    null,
-                    React.createElement("span", { className: "fa fa-lock" }),
-                    " Homepage"
-                )
-            )
-        );
-    }
-});
-
-// Export the component back for use in other files
-module.exports = Homepage;
 
 /***/ })
 /******/ ]);
