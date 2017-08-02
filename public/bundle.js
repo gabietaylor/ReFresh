@@ -23016,6 +23016,7 @@ var IndexRoute = router.IndexRoute;
 
 // Main comps
 var Main = __webpack_require__(208);
+var Homepage = __webpack_require__(211);
 var Login = __webpack_require__(209);
 var SignUp = __webpack_require__(210);
 
@@ -23028,6 +23029,7 @@ React.createElement(
   React.createElement(
     Route,
     { path: "/", component: Main },
+    React.createElement(Route, { path: "Homepage", component: Homepage }),
     React.createElement(Route, { path: "Login", component: Login }),
     React.createElement(Route, { path: "Signup", component: SignUp }),
     React.createElement(IndexRoute, { component: Login })
@@ -24749,6 +24751,13 @@ var SignUp = React.createClass({
 });
 
 module.exports = SignUp;
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);

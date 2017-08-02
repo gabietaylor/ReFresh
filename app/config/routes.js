@@ -1,18 +1,19 @@
-const React = require("react");
-const router = require("react-router");
+var React = require("react");
+var router = require("react-router");
 // display individual routes
-const Route = router.Route;
+var Route = router.Route;
 // hold all Routes and can config props
-const Router = router.Router;
+var Router = router.Router;
 
 // hashHistory prop to handle routing without a server
-const hashHistory = router.hashHistory;
-const IndexRoute = router.IndexRoute;
+var hashHistory = router.hashHistory;
+var IndexRoute = router.IndexRoute;
 
 // Main comps
-const Main = require("../components/Main");
-const Login = require("../components/Login");
-const SignUp = require("../components/Signup");
+var Main = require("../components/Main");
+var Homepage = require("../components/Homepage");
+var Login = require("../components/Login");
+var SignUp = require("../components/Signup");
 
 module.exports = (
 
@@ -21,6 +22,7 @@ module.exports = (
     <Route path="/" component={Main}>
 
       {/* If user selects Login or SignUp show the routed comp */}
+      <Route path="Homepage" component={Homepage} />
       <Route path="Login" component={Login} />
       <Route path="Signup" component={SignUp} />
 
