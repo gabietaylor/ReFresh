@@ -1,14 +1,13 @@
+var path = require('path');
 module.exports = function(app, passport) {
     // show the home page (will also have our login links)
-    app.get('/', function(req, res) {
+    app.get('/homepage', function(req, res) {
         res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
+        res.sendFile(path.join(__dirname, '../public', 'index.html'));
     });
 
     // LOGOUT ==============================
@@ -20,16 +19,19 @@ module.exports = function(app, passport) {
     // locally --------------------------------
         // LOGIN ===============================
         // show the login form
-        app.get('/login', function(req, res) {
-            res.render('login.ejs', { message: req.flash('loginMessage') });
+    app.get('/login', function(req, res) {
+        res.render('login.ejs', { message: req.flash('loginMessage') });
         });
 
         // process the login form
-        app.post('/login', passport.authenticate('local-login', {
+/*        app.post('/login', passport.authenticate('local-login', {
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
-        }));
+        }));*/
+    app.post('/login', function(req, res){
+        res.redirect('/profile');
+    });
 
         // SIGNUP =================================
         // show the signup form
@@ -55,6 +57,11 @@ module.exports = function(app, passport) {
                 successRedirect : '/profile',
                 failureRedirect : '/'
             }));
+        // route for logging out
+        app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
 
     // twitter --------------------------------
 
