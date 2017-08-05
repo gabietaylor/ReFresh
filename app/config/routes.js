@@ -13,8 +13,6 @@ var IndexRoute = router.IndexRoute;
 var Main = require("../components/Main");
 var Login = require("../components/Login");
 var Signup = require("../components/Signup");
-var ConnectLocal = require("../components/Connect-Local");
-var Profile = require("../components/Profile");
 
 module.exports = (
 

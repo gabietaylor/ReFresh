@@ -1,21 +1,21 @@
 {
-  "name": "ujimaconnect",
+  "name": "efresh",
   "version": "1.0.0",
   "description": "* \r * \r * \r *",
-  "main": "server.js",
+  "main": "views/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabietaylor/UjimaConnect.git"
+    "url": "git+https://github.com/gabietaylor/ReFresh.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabietaylor/UjimaConnect/issues"
+    "url": "https://github.com/gabietaylor/ReFresh/issues"
   },
-  "homepage": "https://github.com/gabietaylor/UjimaConnect#readme",
+  "homepage": "https://github.com/gabietaylor/ReFresh#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "bcrypt-nodejs": "0.0.3",
@@ -40,6 +40,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "path": "^0.12.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.2",

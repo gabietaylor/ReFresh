@@ -21,13 +21,13 @@ mongoose.connect(dbConnectString, function(error){
 	console.log("Successful mongoose connection.");
 });
 
-// Grad everything form public
-app.use(express.static('./public'));
 
 //mongoose.connect(configDB.url); // connect to our database
 require('./config/passport')(passport); // pass passport for configuration
 // required for passport
 app.set('view engine', 'ejs');
+// Grad everything form public
+app.use(express.static('./public'));
 // Morgan Logging
 app.use(logger('dev'));
 // Parse the data
@@ -50,8 +50,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./passport/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport// 
 
 // Import routes and give the server access to them.
-var routes = require("./controller/controller.js");
-app.use("/", routes);
+// var routes = require("./controller/controller.js");
+// app.use("/", routes);
 
 // Listening on Port
 app.listen(process.env.PORT || 8080, function() {

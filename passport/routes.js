@@ -1,20 +1,20 @@
 var path = require('path');
 module.exports = function(app, passport) {
     // show the home page (will also have our login links)
-    app.get('/Main', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
-/*    app.get('/profile', isLoggedIn, function(req, res) {
+    app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {
             user : req.user
         });
-    });*/
-
-        app.get('/profile', isLoggedIn, function(req, res) {
-        res.sendFile(path.join(__dirname, '../public', 'index.html'));
     });
+
+/*        app.get('/profile', isLoggedIn, function(req, res) {
+        res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    });*/
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
             failureFlash : true // allow flash messages
         }));
 
-/*    app.post('/login', function(req, res){
+    /*app.post('/login', function(req, res){
         res.redirect('/profile');
     });*/
 
