@@ -84,7 +84,7 @@
 
 * Idea(s) must be approved by Instructional Staff
 - What problem are solving?
-    - ``Creating a 'one stop shop' for investors to assess and manage properties``
+    - ``Creating a 'one stop shop' for farmers to send a location/notification to users that they are in the area``
 
 - What value does your site/app bring?
 
