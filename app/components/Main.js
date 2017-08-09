@@ -11,8 +11,7 @@ var Main = React.createClass({
       <div className="container">
         <div className="row">
           <div className="jumbotron text-center">
-{/*            <h1>Homepage</h1>
-*/}          </div>
+          </div>
           <div className="container">
             {/* Added this.props.children to put child comps in place*/}
             {this.props.children}
