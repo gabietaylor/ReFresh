@@ -19,8 +19,8 @@ module.exports = (
         <Route path="Homepage" component={Homepage} />
         <Route path="ConnectLocal" component={ConnectLocal} />
 
-      {/* If user selects any other path... we get the Login Route */}
-      <IndexRoute component={Login} />
+      {/* If user selects any other path... we get the Homepage Route */}
+      <IndexRoute component={Homepage} />
     </Route>
   </Router>
 );
