@@ -8,16 +8,10 @@ var Main = React.createClass({
   // Render Comp
   render: function() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="jumbotron text-center">
-          </div>
           <div className="container">
             {/* Added this.props.children to put child comps in place*/}
             {this.props.children}
           </div>
-        </div>
-      </div>
     );
   }
 });

@@ -1,79 +1,26 @@
-/*var React = require("react");
+var React = require("react");
 var Homepage = React.createClass({
 
   // Render Comp
   render: function() {
     return (
-<div className="bgimg w3-display-container w3-text-white">
-  <div className="w3-display-middle w3-jumbo">
-    <p>ReFresh Yourself</p>
-  </div>
-  <div className="w3-display-topleft w3-container w3-xlarge">
-    <p><button onClick="document.getElementById('signup').style.display='block'" className="w3-button w3-black">signup</button></p>
-    <p><button onClick="document.getElementById('login').style.display='block'" className="w3-button w3-black">login</button></p>
-  </div>
-  <div className="w3-display-bottomleft w3-container">
-    <p className="w3-xlarge"> Find Fresh Food in Your Location </p>
-    <p className="w3-large"> Support Local Businesses </p>
-  </div>
-</div>
+<div className="container">
 
-<div>
-<div id="signup" className="w3-modal">
-  <div className="w3-modal-content w3-animate-zoom">
-    <div className="w3-container w3-black w3-display-container">
-      <span onClick="document.getElementById('signup').style.display='none'" className="w3-button w3-display-topright w3-large">x</span>
-      <h1>SignUp</h1>
+    <div className="jumbotron text-center">
+        <h1><span className="fa fa-lock"></span> ReFresh Homepage </h1>
     </div>
-    <div className="w3-container">
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-    </div>
-    <div className="w3-container w3-black">
-      <h1> </h1>
-    </div>
-    <div className="w3-container">
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-    </div>
-    <div className="w3-container w3-black">
-      <h1>  </h1>
-    </div>
-    <div className="w3-container">
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-      <h5> <b> </b></h5>
-    </div>
-  </div>
-</div>
-</div>
-
-<div>
-<div id="login" className="w3-modal">
-  <div className="w3-modal-content w3-animate-zoom">
-    <div className="w3-container w3-black">
-      <span onClick="document.getElementById('login').style.display='none'" className="w3-button w3-display-topright w3-large">x</span>
-      <h1> Login </h1>
-    </div>
-    <div className="w3-container">
-      <p> </p>
-      
-    </div>
-  </div>
-</div>
+        
+        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Need an account? <a href="/signup">Signup</a></p>
+        
 </div>
     );
   }
 });
 
-module.exports = Homepage;*/
+module.exports = Homepage;
 
-var React = require("react");
+/*var React = require("react");
 var Homepage = React.createClass({
   displayName: "Homepage",
 
@@ -335,4 +282,4 @@ var Homepage = React.createClass({
   }
 });
 
-module.exports = Homepage;
+module.exports = Homepage;*/
