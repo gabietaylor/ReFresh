@@ -1,11 +1,11 @@
 var path = require('path');
 module.exports = function(app, passport) {
-    app.get("*", function (req, res) {
+    /*app.get("*", function (req, res) {
         res.sendFile(path.join(__dirname, '../views/index.html'));
-    });
+    });*/
 
     // show the home page (will also have our login links)
-    app.get('/homepage', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('index.ejs');
     });
 
@@ -16,9 +16,9 @@ module.exports = function(app, passport) {
         });
     });
 
-/*        app.get('/profile', isLoggedIn, function(req, res) {
+        app.get('/profile', isLoggedIn, function(req, res) {
         res.sendFile(path.join(__dirname, '../public', 'index.html'));
-    });*/
+    });
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
