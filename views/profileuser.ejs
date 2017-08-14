@@ -29,7 +29,7 @@
     <body>
         <div class="container">
             <div class="page-header text-center">
-                <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+                <h1><span class="fa fa-anchor"></span> User Page</h1>
                 <a href="/logout" class="btn btn-default btn-sm">Logout</a>
             </div>
             <div class="row">
@@ -117,81 +117,3 @@
             
         </body>
     </html>
-<!--                 <script type="text/javascript">
-    var geocoder;
-    var map;
-        function initialize() {
-        // add mapOptions here to the values in the input boxes.
-        var mapOptions = {
-        center: new google.maps.LatLng(28.538336, -81.379234),
-        zoom: 10,
-        panControl: true, //enable pan Control
-        zoomControl: true, //enable zoom control
-        zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.SMALL //zoom control size
-        },
-        scaleControl: true, // enable scale control
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map_canvas"),
-        mapOptions);
-        geocoder = new google.maps.Geocoder();
-        }
-    
-    function addAddress() {
-        var address = document.getElementById('address').value;
-        geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-            });
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        });
-
-            //##### drop a new marker on right click ######
-            google.maps.event.addListener(map, 'rightclick', function(event) {      
-                var marker = new google.maps.Marker({
-                    position: event.latLng, //map Coordinates where user right clicked
-                    map: map,
-                    draggable:true, //set marker draggable 
-                    animation: google.maps.Animation.DROP, //bounce animation
-                    title:"Hello World!",
-                    icon: "http://PATH-TO-YOUR-WEBSITE-ICON/icons/pin_green.png" //custom pin icon
-                });
-
-                //Content structure of info Window for the Markers
-                var contentString = $('<div class="marker-info-win">'+
-                '<div class="marker-inner-win"><span class="info-content">'+
-                '<h1 class="marker-heading">New Marker</h1>'+
-                'This is a new marker infoWindow'+ 
-                '</span>'+
-                '<br /><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button></div></div>');
-                    
-                //Create an infoWindow
-                var infowindow = new google.maps.InfoWindow();
-                
-                //set the content of infoWindow
-                infowindow.setContent(contentString[0]);
-                
-                //add click listner to marker which will open infoWindow         
-                google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker); // click on marker opens info window 
-                });
-                
-
-                //###### remove marker #########/
-                var removeBtn   = contentString.find('button.remove-marker')[0];
-                google.maps.event.addDomListener(removeBtn, "click", function(event) {
-                    marker.setMap(null);
-        });
-    });
-}
-});
-
-
-            });
-        }
-            </script> -->
