@@ -90,7 +90,7 @@ var Homepage = React.createClass({  render: function() {
 module.exports = Homepage;
 
 /*import React from "react";
-class Profile extends React.Component {
+class Homepage extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -109,7 +109,6 @@ class Profile extends React.Component {
     render() {
         var content = (
             <div className="modal">
-                <h2>I am Esterling Accime</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet asperiores cupiditate dolor error ipsa ipsum laborum nihil sapiente voluptates! Consequuntur c
                     ulpa cupiditate distinctio laborum minima nam, necessitatibus provident repellat?</p>
             </div>
@@ -118,9 +117,57 @@ class Profile extends React.Component {
             <div>
                 <h1>Hello World!!!</h1>
                 {this.state.show === true ? content : <p>No it's not </p>}
-                <button onClick={this.modalPopUp.bind(this)}>Send Data</button>
+                <button onClick={this.modalPopUp.bind(this)}>Login</button>
             </div>
         );
     }
 }
-export default Profile;*/
+export default Homepage;
+
+const MyLargeModal = React.createClass({
+  render() {
+    return (
+      <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Wrapped Text</h4>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+});
+
+const App = React.createClass({
+  getInitialState() {
+    return { lgShow: false };
+  },
+  render() {
+    let lgClose = () => this.setState({ lgShow: false });
+
+    return (
+      <ButtonToolbar>
+        <Button bsStyle="primary" onClick={()=>this.setState({ lgShow: true })}>
+          Launch large demo modal
+        </Button>
+
+        <MyLargeModal show={this.state.lgShow} onHide={lgClose} />
+      </ButtonToolbar>
+    );
+  }
+});
+
+ReactDOM.render(<App/>, mountNode);*/
