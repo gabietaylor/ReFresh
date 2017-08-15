@@ -39,15 +39,15 @@
                         <label>Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+                    <button type="submit" class="btn btn-warning btn-lg" onclick ="chekcSubmitType()">Signup</button>
                     <p>Also with:</p>
-                    <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-                    
-                    <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter-plus"></span> Twitter</a>
-                    <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+                    <a href="/auth/facebook" class="btn btn-primary" onclick ="chekcSubmitType()"><span class="fa fa-facebook"></span> Facebook</a>
+                    <a href="/auth/twitter" class="btn btn-info" onclick ="chekcSubmitType()"><span class="fa fa-twitter-plus"></span> Twitter</a>
+                    <a href="/auth/google" class="btn btn-danger" onclick ="chekcSubmitType()"><span class="fa fa-google-plus"></span> Google</a>
+
                     <div class="radio">
-                        <label><input type="radio" name="optradio">Are you a fresh food seller?</label>
-                        <label><input type="radio" name="optradio">Are you a fresh food buyer?</label>
+                        <label><input type="radio" name="optradio" id="seller" value="seller">Are you a fresh food seller?</label>
+                        <label><input type="radio" name="optradio" id="buyer" value="buyer">Are you a fresh food buyer?</label>
                     </div>
                 </form>
                 <hr>
