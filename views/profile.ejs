@@ -13,17 +13,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
         <style>
-            body,h1,h5 {font-family: "Raleway", sans-serif}
-            body, html {height: 100%}
-            body {
-            background-image: url('./assets/images/growveg.jpg');
-            background-color: black;
-            min-height: 100%;
-            background-position: center;
-            background-size: cover;}
-            #map { width:450px; height:450px; }
+        body,h1,h5 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        body {
+        background-image: url('./assets/images/growveg.jpg');
+        background-color: black;
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;}
+        #map { width:450px; height:450px; }
         </style>
     </head>
     <body>
@@ -104,90 +103,96 @@
                         <% } %>
                     </div>
                 </div>
+                                <div class="container">
+                    <input id="address" type="textbox" value="Tampa,FL">
+                    <input type="button" value="add" onclick="addAddress()">
                     <div id="map"></div>
-    <div id="form">
-      <table>
-      <tr><td>Name:</td> <td><input type='text' id='name'/> </td> </tr>
-      <tr><td>Address:</td> <td><input type='text' id='address'/> </td> </tr>
-      <tr><td>Type:</td> <td><select id='type'> +
-                 <option value='bar' SELECTED>bar</option>
-                 <option value='restaurant'>restaurant</option>
-                 </select> </td></tr>
-                 <tr><td></td><td><input type='button' value='Save' onclick='saveData()'/></td></tr>
-      </table>
-    </div>
-    <div id="message">Location saved</div>
-    <script>
-      var map;
-      var marker;
-      var infowindow;
-      var messagewindow;
-
-      function initMap() {
-        var orlando = {lat: 28.538336, lng: -81.379234};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: orlando,
-          zoom: 13
-        });
-
-        infowindow = new google.maps.InfoWindow({
-          content: document.getElementById('form')
-        });
-
-        messagewindow = new google.maps.InfoWindow({
-          content: document.getElementById('message')
-        });
-
-        google.maps.event.addListener(map, 'click', function(event) {
-          marker = new google.maps.Marker({
-            position: event.latLng,
-            map: map
-          });
-
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-          });
-        });
-      }
-
-      function saveData() {
-        var name = escape(document.getElementById('name').value);
-        var address = escape(document.getElementById('address').value);
-        var type = document.getElementById('type').value;
-        var latlng = marker.getPosition();
-        var url = 'phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
-                  '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
-
-        downloadUrl(url, function(data, responseCode) {
-
-          if (responseCode == 200 && data.length <= 1) {
-            infowindow.close();
-            messagewindow.open(map, marker);
-          }
-        });
-      }
-
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request.responseText, request.status);
-          }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
-
-      function doNothing () {
-      }
-
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUqGjYqAJxvwJk39JQYuugYHO-7Yk6QOk&callback=initMap">
-    </script>
+                </div>
+                <div id="form">
+                    <table>
+                        <tr><td>Name:</td> <td><input type='text' id='name'/> </td> </tr>
+                        <tr><td>Address:</td> <td><input type='text' id='address'/> </td> </tr>
+                        <tr><td>Type:</td> <td><select id='type'> +
+                        <option value='bar' SELECTED>bar</option>
+                        <option value='restaurant'>restaurant</option>
+                    </select> </td></tr>
+                    <tr><td></td><td><input type='button' value='Save' onclick='saveData()'/></td></tr>
+                </table>
+            </div>
+            <div id="message">Location saved</div>
+            <script>
+            var geocoder;
+            var map;
+            var marker;
+            var infowindow;
+            var messagewindow;
+            function initMap() {
+                var orlando = {lat: 28.538336, lng: -81.379234};
+                map = new google.maps.Map(document.getElementById('map'), {
+                center: orlando,
+                zoom: 13
+                });
+                infowindow = new google.maps.InfoWindow({
+                content: document.getElementById('form')
+                });
+                messagewindow = new google.maps.InfoWindow({
+                content: document.getElementById('message')
+                });
+                google.maps.event.addListener(map, 'click', function(event) {
+                marker = new google.maps.Marker({
+                position: event.latLng,
+                map: map
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+                });
+                 geocoder = new google.maps.Geocoder();
+                });
+                }
+            function saveData() {
+                var name = escape(document.getElementById('name').value);
+                var address = escape(document.getElementById('address').value);
+                var type = document.getElementById('type').value;
+                var latlng = marker.getPosition();
+                var url = 'phpsqlinfo_addrow.php?name=' + name + '&address=' + address +
+                '&type=' + type + '&lat=' + latlng.lat() + '&lng=' + latlng.lng();
+                downloadUrl(url, function(data, responseCode) {
+                if (responseCode == 200 && data.length <= 1) {
+                infowindow.close();
+                messagewindow.open(map, marker);
+                }
+                });
+                }
+            function downloadUrl(url, callback) {
+                var request = window.ActiveXObject ?
+                new ActiveXObject('Microsoft.XMLHTTP') :
+                new XMLHttpRequest;
+                request.onreadystatechange = function() {
+                if (request.readyState == 4) {
+                request.onreadystatechange = doNothing;
+                callback(request.responseText, request.status);
+                }
+                };
+                request.open('GET', url, true);
+                request.send(null);
+                }
+                function doNothing () {
+                }
+             function addAddress() {
+                var address = document.getElementById('address').value;
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+                }
+                });
+                }    
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUqGjYqAJxvwJk39JQYuugYHO-7Yk6QOk&callback=initMap">
+            </script>
